@@ -1,0 +1,630 @@
+:root {
+	--clr-black: hsl(0 0% 0%);
+	--clr-Opacity-white: hsla(0 0% 100% / 0.5);
+	--clr-white: hsl(0 0% 100%);
+	--clr-transparent: hsla(0 0% 0% 0);
+	--clr-Opacity-black-300: hsla(0 0% 0% / 0.3);
+	--clr-Opacity-black-500: hsla(0 0% 0% / 0.5);
+	--clr-Gray-600: hsl(0 0% 60%);
+
+	--clr-theme-Opacity-250: hsla(210 38% 53% / 0.25);
+	--clr-theme-Opacity-500: hsla(210 38% 53% / 0.5);
+	--clr-theme-Opacity-750: hsla(210 38% 53% / 0.75);
+	--clr-theme: hsl(210 68% 48%);
+	--clr-theme-Black: hsl(0, 100%, 12%);
+
+	--clr-theme-White: hsl(0, 100%, 100%);
+	--clr-theme-White-Opacity-750: hsla(0 100% 100% / 0.75);
+	--clr-theme-White-Opacity-500: hsla(0 100% 100% / 0.5);
+	--clr-theme-White-Opacity-250: hsla(0 100% 100% / 0.25);
+
+	--clr-Accent-100: hsl(14, 100%, 72%);
+	--clr-Accent-200: hsl(349, 100%, 55%);
+
+	--clr-Accent-Opacity-100: hsla(14 100% 72% / 0.5);
+	--clr-Accent-Opacity-200: hsla(349 100% 55% / 0.5);
+
+	--Border-Regular: 15%;
+	--Border-Hover: 25%;
+	--Border-Click: 50%;
+
+	--Counter-Zero: "00";
+
+	--Icon-Size: 2.464vh;
+
+	--ff-Regular: 'Inter', sans-serif;
+    --ff-Bold: 'Inter', sans-serif;
+    --ff-Bolder: 'Inter', sans-serif;
+}
+
+@keyframes Blink-Animation {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes Blink-Animation-Reverse {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes Rotate-Animation {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes Float-Animation {
+	0% {
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	50% {
+		transform: translate(-50%, -40%) scale(1);
+	}
+
+	100% {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+@keyframes Unit-Float-Animation {
+	0% {
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(-0.5vh);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+/*-------------------------------------------Global-------------------------------------------*/
+* {
+	
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	user-select: none;
+    color: #e2e2e2;
+    text-shadow: 0px 0px 1.4px rgba(116, 116, 116, 0.86);
+	font-family: var(--ff-Regular);
+	list-style: none;
+	font-size: 1.386vh;
+
+}
+
+svg>* {
+	transition: none;
+}
+ 
+
+/* The position of speedo */
+body {
+	--Zoom: 0.94;
+	--X-Indent: -50%;
+	--Y-Indent: -101%;
+	--Left: 93%;
+	--Top: 98.4%;
+}
+
+
+
+body {
+	/* background: #000; */
+	overflow: hidden;
+}
+
+.Main {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 100vw;
+	height: 100vh;
+	left: 50%;
+	top: 50%;
+	flex-direction: row;
+	flex-wrap: wrap;
+	animation: show 1s;
+	display: none;
+	/* background-color: black; */
+}
+
+
+@keyframes show {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+
+
+.Main {
+	transform: translate(var(--X-Indent), var(--Y-Indent));
+	width: 100vw;
+	height: 100vh;
+	left: var(--Left);
+	top: var(--Top);
+
+	zoom: var(--Zoom);
+}
+
+.icon-holder {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 1vh;
+}
+
+.icon-holder>* {
+	font-size: 5vh !important;
+}
+
+.Back {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 100vw;
+	height: 100vh;
+	left: 50%;
+	top: 50%;
+}
+
+.Back {
+	transform: translate(var(--X-Indent), var(--Y-Indent));
+	width: 100vw;
+	height: 100vh;
+	left: var(--Left);
+	top: var(--Top);
+
+	zoom: var(--Zoom);
+}
+
+.Main-Container {
+	position: absolute;
+    bottom: 2.8%;
+    left: 8.4%;
+    width: 20.1vw;
+    height: 9.2vw;
+    /* border: 3px solid transparent;
+    border-image: linear-gradient(to left, rgba(4, 255, 199, 0.9), rgba(4, 255, 199, 0));
+    border-image-slice: 1; */
+    border-radius: 10px;
+    z-index: 10;
+
+	/* border: solid red 0.154vh; */
+	/* border-radius: 2vh; Delete this */
+}
+
+.Main-Container::after {
+    content: 'SPEEDOMETER'; /* Label for the server ID bar */
+    position: absolute;
+    bottom: -10px; /* Position to make half of the text outside the bar */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, 0); /* Center horizontally without moving vertically */
+    font-size: 12px; /* Increased font size for better visibility */
+    color: rgba(255, 255, 255, 0.7);
+    z-index: 3; /* Ensure it stays on top of everything */
+    pointer-events: none; /* Make sure the text doesn't interfere with clicks */
+}
+
+
+/*------------------------------Bot-Mid------------------------------*/
+.Bot-Mid {
+	transform: translate(-50%, -100%);
+	width: 17.9vh;
+	height: 18.2vh;
+	left: 50%;
+	top: 100%;
+}
+
+.Bot-Mid>* {
+	/* display: none; */
+}
+
+.Speed-Meter {
+	position: absolute;
+	transform: translate(-100%, 0);
+	width: 100%;
+	height: 100%;
+	left: 100%;
+	top: 0;
+}
+
+.Speed-Meter-Bar {
+	position: absolute;
+	transform: translate(-50%, -0%);
+	width: 91%;
+	aspect-ratio: 1;
+	left: 50%;
+	top: 4.5%;
+
+
+}
+
+.Speed-Meter-Bar-Track {
+	transform: rotate(48.4deg);
+	transform-origin: center;
+	fill: none;
+	stroke-width: 0.6vh;
+	/* stroke-dasharray: 262.7; */
+	stroke-dashoffset: 205.1;
+}
+
+.Speed-Meter-Bar-Progress {
+	--Clamp-Rate:
+		clamp(0, var(--Rate), 100);
+	transform: rotate(127deg);
+	transform-origin: center;
+	transform-origin: center;
+	filter: drop-shadow(0 0 0.06vh #00C491);
+	fill: none;
+	stroke: #00C491;
+	stroke-width: 0.66vh;
+	stroke-dasharray: 262.7;
+	stroke-dashoffset: calc(-1 * var(--Clamp-Rate) / 100 * 205.4 - 262.6);
+}
+
+.Speed-Meter-Bar-Val {
+	--Rate: 20;
+	transition: 0.5s;
+}
+
+.Fuel-Meter-Bar {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 108.6%;
+	aspect-ratio: 1;
+	left: 50%;
+	top: 50%;
+}
+
+.Fuel-Meter-Bar-Track {
+	transform: rotate(135.9deg);
+	transform-origin: center;
+	fill: none;
+	stroke: rgba(255, 255, 255, 0.35);
+	stroke-width: 0.16vh;
+	stroke-dasharray: 262.7;
+	stroke-dashoffset: 254.8;
+	transition: 0.5s;
+}
+
+[data-Fuel="1"] .Fuel-Meter-Bar-Track-1 {
+	stroke: red;
+}
+
+[data-Fuel="2"] .Fuel-Meter-Bar-Track-1,
+[data-Fuel="2"] .Fuel-Meter-Bar-Track-2,
+[data-Fuel="3"] .Fuel-Meter-Bar-Track-1,
+[data-Fuel="3"] .Fuel-Meter-Bar-Track-2,
+[data-Fuel="3"] .Fuel-Meter-Bar-Track-3,
+[data-Fuel="4"] .Fuel-Meter-Bar-Track-1,
+[data-Fuel="4"] .Fuel-Meter-Bar-Track-2,
+[data-Fuel="4"] .Fuel-Meter-Bar-Track-3,
+[data-Fuel="4"] .Fuel-Meter-Bar-Track-4,
+[data-Fuel="5"] .Fuel-Meter-Bar-Track-1,
+[data-Fuel="5"] .Fuel-Meter-Bar-Track-2,
+[data-Fuel="5"] .Fuel-Meter-Bar-Track-3,
+[data-Fuel="5"] .Fuel-Meter-Bar-Track-4,
+[data-Fuel="5"] .Fuel-Meter-Bar-Track-5,
+[data-Fuel="6"] .Fuel-Meter-Bar-Track-1,
+[data-Fuel="6"] .Fuel-Meter-Bar-Track-2,
+[data-Fuel="6"] .Fuel-Meter-Bar-Track-3,
+[data-Fuel="6"] .Fuel-Meter-Bar-Track-4,
+[data-Fuel="6"] .Fuel-Meter-Bar-Track-5,
+[data-Fuel="6"] .Fuel-Meter-Bar-Track-6,
+[data-Fuel="7"] .Fuel-Meter-Bar-Track-1,
+[data-Fuel="7"] .Fuel-Meter-Bar-Track-2,
+[data-Fuel="7"] .Fuel-Meter-Bar-Track-3,
+[data-Fuel="7"] .Fuel-Meter-Bar-Track-4,
+[data-Fuel="7"] .Fuel-Meter-Bar-Track-5,
+[data-Fuel="7"] .Fuel-Meter-Bar-Track-6,
+[data-Fuel="7"] .Fuel-Meter-Bar-Track-7,
+[data-Fuel="8"] .Fuel-Meter-Bar-Track-1,
+[data-Fuel="8"] .Fuel-Meter-Bar-Track-2,
+[data-Fuel="8"] .Fuel-Meter-Bar-Track-3,
+[data-Fuel="8"] .Fuel-Meter-Bar-Track-4,
+[data-Fuel="8"] .Fuel-Meter-Bar-Track-5,
+[data-Fuel="8"] .Fuel-Meter-Bar-Track-6,
+[data-Fuel="8"] .Fuel-Meter-Bar-Track-7,
+[data-Fuel="8"] .Fuel-Meter-Bar-Track-8 {
+	stroke: rgba(255, 255, 255);
+}
+
+.Fuel-Meter-Bar-Track-1 {
+	transform: rotate(135.9deg);
+	stroke-dashoffset: 260.3;
+}
+
+.Fuel-Meter-Bar-Track-2 {
+	transform: rotate(142deg);
+}
+
+.Fuel-Meter-Bar-Track-3 {
+	transform: rotate(155.5deg);
+}
+
+.Fuel-Meter-Bar-Track-4 {
+	transform: rotate(168.5deg);
+}
+
+.Fuel-Meter-Bar-Track-5 {
+	transform: rotate(181.2deg);
+}
+
+.Fuel-Meter-Bar-Track-6 {
+	transform: rotate(194.1deg);
+}
+
+.Fuel-Meter-Bar-Track-7 {
+	transform: rotate(207.3deg);
+}
+
+.Fuel-Meter-Bar-Track-8 {
+	transform: rotate(220deg);
+}
+
+[data-Fuel="0"] .Fuel-Icon,
+[data-Fuel="0"] .Fuel-Text,
+[data-Fuel="1"] .Fuel-Icon,
+[data-Fuel="1"] .Fuel-Text {
+	color: red;
+	fill: red;
+}
+
+.Fuel-Icon {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	height: 1.1vh;
+	left: 22.2%;
+	top: 87.8%;
+	fill: #08C098;
+}
+
+.Fuel-Text {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	left: 9.6%;
+	top: 87.2%;
+	font-weight: 900;
+	font-size: 1.3vh;
+	line-height: 2vh;
+	letter-spacing: -0.15vh;
+}
+
+.Fuel-Text::after {
+	content: "L";
+	margin-left: 0.1vh;
+	color: inherit;
+}
+
+
+.Gage-Meter-Bar {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 109.5%;
+	aspect-ratio: 1;
+	left: 50%;
+	top: 50%;
+
+}
+
+.Gage-Meter-Bar-Track {
+	transform: rotate(49.2deg);
+	transform-origin: center;
+	fill: none;
+	stroke: rgba(255, 255, 255, 0.35);
+	stroke-width: 0.08vh;
+	stroke-dasharray: 262.7;
+	stroke-dashoffset: 386.1;
+}
+
+.Gage-Meter-Bar-Val {
+	--Rate: 0;
+	--Clamp-Rate:
+		clamp(0, var(--Rate), 100);
+	transform: rotate(49.2deg);
+	transform-origin: center;
+	filter: drop-shadow(0 0 0.06vh #00C491);
+	fill: none;
+	stroke: #00C491;
+	stroke-width: 0.08vh;
+	stroke-dasharray: 262.7;
+	stroke-dashoffset: calc(1 * var(--Clamp-Rate) / 100 * 123.4 - 262.6);
+	transition: 0.5s;
+}
+
+.Damage-Meter-Bar {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 116.6%;
+	aspect-ratio: 1;
+	left: 50%;
+	top: 50%;
+}
+
+.Damage-Meter-Bar-Track-1 {
+	transform: rotate(49.2deg);
+	transform-origin: center;
+	fill: none;
+	stroke: rgba(255, 255, 255, 0.35);
+	stroke-width: 0.12vh;
+	stroke-dasharray: 262.7;
+	stroke-dashoffset: 285.5;
+}
+
+.Damage-Meter-Bar-Val-1 {
+	--Rate: 0;
+	--Clamp-Rate:
+		clamp(0, var(--Rate), 100);
+	transform: rotate(49.2deg);
+	transform-origin: center;
+	filter: drop-shadow(0 0 0.06vh red);
+	fill: none;
+	stroke: red;
+	stroke-width: 0.12vh;
+	stroke-dasharray: 262.7;
+	stroke-dashoffset: calc(1 * var(--Clamp-Rate) / 100 * 22.9 - 262.6);
+}
+
+.Damage-Meter-Bar-Track-2 {
+	transform: rotate(15.6deg);
+	transform-origin: center;
+	fill: none;
+	stroke: rgba(255, 255, 255, 0.35);
+	stroke-width: 0.12vh;
+	stroke-dasharray: 262.7;
+	stroke-dashoffset: 275.1;
+}
+
+.Damage-Meter-Bar-Val-2 {
+	--Rate: 0;
+	--Clamp-Rate:
+		clamp(0, var(--Rate), 100);
+	transform: rotate(15.6deg);
+	transform-origin: center;
+	filter: drop-shadow(0 0 0.06vh red);
+	fill: none;
+	stroke: red;
+	stroke-width: 0.12vh;
+	stroke-dasharray: 262.7;
+	stroke-dashoffset: calc(1 * var(--Clamp-Rate) / 100 * 12.3 - 262.6);
+}
+
+
+.Speed-Container {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+	left: 50%;
+	top: 50%;
+}
+
+.Speeds {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	font-weight: 900;
+	font-size: 1vh;
+}
+
+.Speeds:nth-child(odd) {
+	color: #ffffff8c;
+}
+
+.Speeds:nth-child(even) {
+	color: #ffffffff;
+}
+
+.Speeds:nth-child(n + 9) {
+	transform: translate(-100%, -50%);
+}
+
+.Speeds:nth-child(-n + 7) {
+	transform: translate(-0%, -50%);
+}
+
+.Speed-Counter {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 45%;
+	font-weight: 900;
+	font-size: 3.5vh;
+}
+
+.Speed-Counter::before {
+	content: var(--Counter-Zero);
+	color: rgba(255, 255, 255, 0.25);
+}
+
+.Speed-KM {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 61%;
+	font-weight: 600;
+	font-size: 1.4vh;
+}
+
+.Controls {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 9.3vh;
+	left: 50%;
+	top: 71.7%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.Control-Icon-Container {
+	position: relative;
+	width: 2vh;
+	height: 2vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Control-Icon {
+	position: absolute;
+	width: 100%;
+	fill: var(--color);
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	opacity: 0.3;
+	fill: white;
+}
+
+
+.Active-Control .Control-Icon {
+	opacity: 1;
+	fill: #08C098;
+}
+
+
+.Door-Container .Control-Icon {
+	width: 63%;
+}
+
+.Belt-Container .Control-Icon {
+	width: 70%;
+}
+
+.Lights-Container .Control-Icon {
+	width: 70%;
+}

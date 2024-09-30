@@ -1,0 +1,193 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif; 
+    background-color: transparent;
+}
+
+#hud {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: right;
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+
+#hud.show {
+    opacity: 1; 
+}
+
+#server-id {
+    position: fixed; 
+    top: 108px; 
+    right: 20px; 
+    padding: 3px 10px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    overflow: visible; 
+    transition: background 0.3s ease;
+    min-width: 50px;
+    background: linear-gradient(to left, rgba(1, 88, 71, 0.90), rgba(1, 88, 71, 0.00)); 
+    border: 2px solid transparent;
+    border-image: linear-gradient(to left, rgba(4, 255, 199, 0.9), rgba(4, 255, 199, 0));
+    border-image-slice: 1;
+}
+
+#server-id::after {
+    content: 'ID'; 
+    position: absolute;
+    bottom: -8px; 
+    left: 50%; 
+    transform: translate(-50%, 0); 
+    font-size: 12px; 
+    color: rgba(255, 255, 255, 0.7);
+    z-index: 3; 
+    pointer-events: none; 
+}
+
+#job-bar, #gang-bar, #cash-label, #bank-label, #ammo-label {
+    padding: 3px 10px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    position: relative;
+    overflow: visible; 
+    transition: background 0.3s ease;
+    width: auto;
+    min-width: 50px;
+    background: linear-gradient(to left, rgba(1, 88, 71, 0.90), rgba(1, 88, 71, 0.00)); 
+    border: 2px solid transparent;
+    border-image: linear-gradient(to left, rgba(4, 255, 199, 0.9), rgba(4, 255, 199, 0));
+    border-image-slice: 1;
+}
+
+#job-bar::after,
+#gang-bar::after,
+#cash-label::after,
+#bank-label::after,
+#ammo-label::after {
+    content: attr(data-label); 
+    position: absolute;
+    bottom: -8px; 
+    left: 50%; 
+    transform: translate(-50%, 0); 
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    z-index: 3; 
+    pointer-events: none; 
+}
+
+#job-bar::after {
+    content: 'Job'; /* Label for the job bar */
+}
+
+#gang-bar::after {
+    content: 'Gang'; /* Label for the gang bar */
+}
+
+#cash-label::after {
+    content: 'Cash'; /* Label for the cash bar */
+}
+
+#bank-label::after {
+    content: 'Bank'; /* Label for the bank bar */
+}
+
+#ammo-label::after {
+    content: 'Ammo'; /* Label for the ammo bar */
+}
+
+#ammo-label {
+    position: absolute; 
+    top: 780px;  /* 108 */
+    right: 1730px; 
+    padding: 5px 10px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 200;
+    overflow: visible; 
+    transition: background 0.3s ease;
+    min-width: 140px;
+    background: linear-gradient(to right, rgba(1, 88, 71, 0.90), rgba(1, 88, 71, 0.00));
+    border: 2px solid transparent;
+    border-image: linear-gradient(to right, rgba(4, 255, 199, 0.9), rgba(4, 255, 199, 0));
+    border-image-slice: 1;
+    opacity: 0; 
+    animation: fadeInOut 1.5s forwards; 
+}
+
+#ammo-label.show {
+    animation: fadeIn 0.5s forwards; 
+}
+
+#ammo-label.hide {
+    animation: fadeOut 0.5s forwards; 
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.hidden {
+    display: none !important; 
+}
+
+#server-id i, #job-bar i, #gang-bar i, #cash-label i, #bank-label i, #ammo-label i {
+    margin-left: 8px; 
+    color: #04FFC7; 
+    font-size: 22px; 
+    order: 2; 
+}
+
+#ammo-label i {
+    font-size: 26px; 
+    color: #04FFC7; 
+}
+
+/* Notification styling */
+.notification {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 14px;
+    transform-origin: left center; 
+    z-index: 1000; 
+    color: inherit; 
+    opacity: 0; 
+    transition: opacity 0.5s ease, transform 0.5s ease; 
+    padding: 0; 
+    border: none; 
+    background: none; 
+    box-shadow: none; 
+}

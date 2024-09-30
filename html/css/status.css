@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background: transparent;
+    color: #ffffff;
+}
+
+
+#minimap {
+    display: none;
+    position: absolute;
+    bottom: 2.8%;
+    left: 1.4%;
+    width: 15.1vw;
+    height: 9.2vw;
+    border: 2.5px solid transparent;
+    border-image: linear-gradient(to right, rgba(4, 255, 199, 0.9), rgba(4, 255, 199, 0));
+    border-image-slice: 0.5;
+    border-radius: 10px;
+    z-index: 10;
+    overflow: visible; 
+}
+
+
+#minimap:hover {
+    border-color: rgba(4, 255, 199, 1);
+    box-shadow: 0 0 15px rgba(4, 255, 199, 0.8);
+}
+
+.status {
+    display: none;
+    position: absolute;
+    bottom: 0.5%;
+    left: 56.30%;
+    padding: 0.4vw;
+    transition: background 0.3s ease;
+    width: 155px; /* Set a fixed width */
+    height: 35px; /* Set a fixed height */
+    background: linear-gradient(to top, rgba(1, 88, 71, 0.90), rgba(0, 0, 0, 0.1));
+    border: 2px solid transparent;
+    border-image: linear-gradient(to top, rgba(4, 255, 199, 0.9), rgba(4, 255, 199, 0));
+    border-image-slice: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 0.3vw;
+    z-index: 15;
+    font-family: 'Inter', sans-serif;
+}
+
+
+.needs-status {
+    display: none;
+    position: absolute;
+    bottom: 0.5%;
+    left: 40.45%;
+    padding: 0.4vw;
+    transition: background 0.3s ease;
+    width: 155px; /* Set a fixed width */
+    height: 35px; /* Set a fixed height */
+    background: linear-gradient(to top, rgba(1, 88, 71, 0.90), rgba(0, 0, 0, 0.1));
+    border: 2px solid transparent;
+    border-image: linear-gradient(to top, rgba(4, 255, 199, 0.9), rgba(4, 255, 199, 0));
+    border-image-slice: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 0.3vw;
+    z-index: 15;
+    font-family: 'Inter', sans-serif;
+}
+
+.oxygen-stamina-status {
+    display: none;
+    position: absolute;
+    bottom: 0.5%;
+    left: 48.39%;
+    padding: 0.4vw;
+    transition: background 0.3s ease;
+    width: 155px; /* Set a fixed width */
+    height: 35px; /* Set a fixed height */
+    background: linear-gradient(to top, rgba(1, 88, 71, 0.90), rgba(0, 0, 0, 0.1));
+    border: 2px solid transparent;
+    border-image: linear-gradient(to top, rgba(4, 255, 199, 0.9), rgba(4, 255, 199, 0));
+    border-image-slice: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 0.3vw;
+    z-index: 15;
+    font-family: 'Inter', sans-serif;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.3vw;
+    font-family: 'Inter', sans-serif;
+}
+
+h1 {
+    font-size: 0.65vw;
+    font-weight: 500;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+i {
+    color: rgba(4, 255, 199, 1);
+    font-size: 1.1vw;
+    text-shadow: 0 0 3px rgba(5, 219, 173, 0.7);
+    transition: transform 0.2s ease, text-shadow 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+i:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 12px rgba(4, 255, 199, 1);
+}
+
+.hud-label {
+    content: attr(data-label); 
+    position: absolute;
+    bottom: -8px; 
+    left: 50%; 
+    transform: translate(-50%, 0); 
+    font-size: 13px; 
+    color: rgba(255, 255, 255, 0.7);
+    z-index: 3; 
+    pointer-events: none; 
+}
